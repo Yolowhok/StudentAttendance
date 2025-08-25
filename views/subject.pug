@@ -1,0 +1,49 @@
+extends ./head
+block content
+    style   
+        include ./css/subject.css
+    script 
+        include /public/js/script-for-CKEDITOR.js
+    div.container
+        h3.mb-4.title.general Курс
+        form#form-for-update-subject(action="updateSubject/" + subject.id, method="post")
+            div.row.col-12
+                div.col-4
+                    input.form-control.general(type="text", name="name", value=subject.name, placeholder="Название предмета", required)
+                    //- input.form-control.general.description.mt-2(type="text", name="description" value=subject.description)
+                div.col-2
+                    input.btn.general(type="submit", value="Обновить")  
+            div.form-group.mb-3
+                div#value-edit-description.mt-4
+                    // Выводим описание дисциплины, которое сформировано при помощи WYSIWYG-редактора.
+                    // Знак != обозначает не проверку на неравенство, а то, что выводим код HTML.
+                    // Если поставить знак равенства, то код HTML будет воспринят в качестве простой строки.
+                    //- div.mb-4.mt-4!=subject.description
+                    span#testSpanForTextArea(escaped)
+
+                // по умолчанию скрываем редактор, его будем отображать при нажатии на кнопку "Редактировать описание"
+                div.div-none.mt-3#form-edit-description
+                    textarea#addSubjectEditor(name="description")!=subject.description
+                    script(type='text/javascript').
+                        var editor = CKEDITOR.replace('addSubjectEditor', {
+                                removePlugins: "exportpdf",
+                                removeButtons: 'PasteFromWord',
+                                filebrowserUploadUrl: '/subjects/uploader',
+                                filebrowserUploadMethod: 'form'
+
+                            }
+                        );
+                input.btn.general.mt-3#button-edit-description(type="button" value="Редактировать описание")
+
+        form(action="deleteSubject/" + subject.id, method="post")
+            input.btn.general.delete(type="submit", value="Удалить")
+           
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+extends ./head
+block content 
+    style  
+        include ./css/attenDanceStudentGroup.css
+    h3.mb-4.title.general Группа #{studentGroup.name}
+    // ссылка на страницу добавления отметки посещаемости
+    //- a.btn.general.attenDanceStudentGroup.mb-4(href="/addAttendanceMark/studentGroupId=" + studentGroupId) Добавить отметку посещаемости
+    //- a.btn.general.attenDanceStudentGroup.mb-4(href="/addAttendanceMark/studentGroupId=" + studentGroupId) Добавить отметку посещаемости 
+    div.form-group.addAttenDanceMark.w-50
+            div.row
+                div.col
+                    a.btn.general.attenDanceStudentGroup.mb-4(href="/addAttendanceMark/studentGroupId=" + studentGroupId) Добавить отметку посещаемости
+                //- div.col
+                //-     a.btn.general.attenDanceStudentGroup.mb-4(href="/addAttendanceMark/studentGroupId=" + studentGroupId) Добавить отметку (for subj) 
+
+    //- table.table.table-hover.table-borderless.table.align-middle(border="0")
+    div.table-responsive.table-fit
+        table.table.table-fit.table-hover(border="0")
+            thead.table-light
+                tr
+                    th(scope="col") Номер
+                    th(scope="col") Студент
+                    each el in journal 
+                        th.data(scope="col")  
+                            a.btn(href="/attendanceMark/journalId=" + el.id + "/studentGroupId=" + studentGroupId) #{el.data_subject}
+                            
+            tbody
+                if journal.length > 0
+                    - var k = journal.length
+                    - var n = 0
+                    - for (var i = 0; i < journalStudent.length / journal.length; i++)
+                        tr
+                            td #{i+1} 
+                            td.table-name.general #{journalStudent[n].student_name} 
+
+                            - for (var j = 0; j < journal.length; j++)
+                                td.attendance
+                                    //- input(name="attendance" + i type="checkbox", checked = journalStudent[j].attendance == 1 ? '' : null)
+                                    input(name="attendance" + i type="checkbox", checked = journalStudent[j + n].attendance == 1 ? '' : null, onclick="return false;")
+                        - n = n + k
+    //- table.table.table-responsive-xl(border="0")
+    //-     thead.table.table-light
+    //-         tr
+    //-             th(scope="col") Дата
+    //-             if journal.length > 0
+    //-                 - var k = journal.length
+    //-                 - var n = 0
+    //-                 - for (var i = 0; i < journalStudent.length / journal.length; i++)
+    //-                     th(scope="col")  #{journalStudent[n].student_name} 
+    //-                     - n = n + k
+    //-     tbody
+    //-         if journal.length > 0
+    //-             each el in journal 
+    //-                 tr 
+    //-                     td 
+    //-                         a(href="/attendanceMark/journalId=" + el.id + "/studentGroupId=" + studentGroupId) #{el.data_subject}
+
+

@@ -1,0 +1,14 @@
+extends ./head
+block content
+    div.container
+        h3.mb-4.title.general Добавить преподавателя
+        form(action="addTeacher", method="post")
+            div.row.mb-4
+                div.col.col-4
+                    input.form-control.general(type="text", name="name", placeholder="ФИО преподавателя", required) 
+                div.col.col-3
+                    select.form-select.general(name="position")
+                        each el in position 
+                            option(value=el.id) #{el.name}  
+                div.col.col-2
+                    input.btn.general(type="submit", value="Добавить")

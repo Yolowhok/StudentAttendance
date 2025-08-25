@@ -1,0 +1,21 @@
+extends ./head 
+block content 
+    script 
+        include /public/js/script-for-subject-teacher.js
+    div.container
+        h3.mb-4.title.general Добавить предмет для преподавателя
+        form(action="/teachers/addSubjectTeacher", method="post")
+            div.row
+                div.col-4
+                    select.form-select.general(name="teacher_id" id="st_teacher_id")
+                        each el in teacher 
+                            //- option(value=el.id) #{el.name} 
+                            option(value=el.id) #{el.name}
+                div.col-3
+                    select.form-select.general(name="subject_id" id="st_subject_id") 
+                        each el in subject 
+                            option(value=el.id) #{el.name}
+                div.col-1
+                    input.btn.general(type="submit", value="Добавить")  
+
+

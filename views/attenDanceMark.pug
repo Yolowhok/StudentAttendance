@@ -1,0 +1,40 @@
+extends ./head 
+block content 
+    style 
+        include css/attendanceMark.css
+    div.container
+        form(action="/attendanceMark/journalId=" + journal.id + "/studentGroupId=" + studentGroupId, method="POST")
+            div.form-group
+                //- div.form-item.row-cols-2.mb-4
+                div.row.mb-4.attendanceMark
+                    div.col
+                        input(name="teacher_id" type="hidden" value=journal.teacher_id)
+                        input.form-control(name="subject_name" type="text" placeholder="Наименование предмета" value=journal.subject_name disabled)
+                    div.col 
+                        input(name="subject_id" type="hidden" value=journal.subject_id)
+                        input.form-control(name="data_subject" type="date" placeholder="Дата занятия" value=journal.data_subject)
+
+                div.table-responsive.table-fit
+                    table.table.table-fit.table-hover(border="0")
+                        thead.table.table-light
+                            tr 
+                                th №
+                                th Студент
+                                th Отметка посещаемости
+                        tbody
+                            -var i = 0
+                            each el in journalStudent 
+                                tr 
+                                    td #{i+1}
+                                    td.table-name.general #{el.student_name}
+                                        input(name="array_students_id", type="hidden" value=el.student_id)
+                                    td.attendance
+                                        input(name="attendance" + i, type="checkbox", checked = el.attendance == 1 ? '' : null)
+                                        -console.log("attendance" + i)
+                                        -i++
+                div.row.text-center.mt-4.attendanceMark.butt
+
+                        input.btn.general(type="submit" value="Обновить")
+        div.col 
+            form(action="/deleteAttendanceMark/journalId=" + journal.id + "/studentGroupId=" + studentGroupId, method="POST")
+                input.btn.general.delete(type="submit" value="Удалить")

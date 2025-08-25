@@ -1,0 +1,14 @@
+extends ./head
+block content
+    div.container
+        h3.mb-4.title.general #{position.name}
+        form(action="/position/updatePosition/"+position.id, method="post") 
+            div.row
+                div.col-4
+                    input.form-control.general(type="text", name="name", value=position.name, placeholder="Должность")
+                div.col-2
+                    input.btn.general(type="submit", value="Обновить")
+        div.row
+            div.col
+                form(action="/position/deletePosition/"+position.id, method="post")
+                    input.btn.general.delete(type="submit", value="Удалить") 

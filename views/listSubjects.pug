@@ -1,0 +1,20 @@
+extends ./head
+block content
+    style 
+        include ./css/listSubjects.css
+    div.container
+        h3.mb-4.title.general Список предметов
+        div.mb-4
+            a.btn.general(href="addSubject") Добавить предмет
+        div.container
+            div.table-responsive.w-50
+                ul.list-group.mb-4.pb-4.text-center
+                    each el in subjects
+                        li.list-group-item
+                            div.row
+                                a.btn.subject(href="/subjects/sub/" + el.id)  #{el.name}
+
+
+        
+
+

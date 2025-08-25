@@ -1,0 +1,24 @@
+extends ./head 
+block content 
+    style 
+        include /views/css/addSubject.css                
+    div.container
+        h3.mb-4.title.general Добавить предмет
+        form(action="addSubject", method="post")
+            div.row
+                div.col-4
+                    input.form-control.general(type="text", name="name" placeholder="Имя" required)
+                div.col-4
+                    input.btn.general(type="submit", value="Добавить")
+            //- div.row.mt-4.w-50
+            //-     input.form-control.general.description(type="text", name="description" placeholder="Описание")
+            div.form-group.mt-4
+                textarea.mt-4#addSubject-Editor(name="description")
+                script(type='text/javascript').
+                    CKEDITOR.replace('addSubject-Editor', {
+                            removePlugins: "exportpdf",
+                            removeButtons: 'PasteFromWord',
+                            removeButtons: 'Underline,JustifyCenter',
+                            filebrowserUploadUrl: '/subjects/uploader', // адрес, который будет обрабатывать загрузку файлов (будем загружать изображения)
+                            filebrowserUploadMethod: 'form' // указываем, что файлы будут загружаться из формы 
+                        })

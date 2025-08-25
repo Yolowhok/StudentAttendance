@@ -1,0 +1,10 @@
+extends ./head
+block content 
+    div.container
+        h3.mb-4.title.general Должность
+        form(action="/position/addPosition", method="post") 
+            div.row
+                div.col-4
+                    input.form-control.general(type="text", name="name", placeholder="Должность", required)
+                div.col-1 
+                    input.btn.general(type="submit", value="Добавить")

@@ -1,0 +1,27 @@
+extends ./head
+block content 
+    style 
+        include ./css/listSubjectTeacher.css
+    div.container
+        h3.mb-4.title.general Предметы преподавателей 
+        div.mb-4
+            a.btn.general(href="/teachers/addSubjectTeacher") Добавить новую запись
+        div.table-responsive.table-fit
+            table.table.table-fit.table-hover
+                thead.table-light
+                    tr
+                        th №
+                        th Преподаватель
+                        th Дисциплина
+                        th Действие
+                tbody
+                    -i=1
+                    each el in subjectTeacher
+                        tr
+                            td.attendance #{i}
+                            td.attendance.table-name.general #{el.teacher_name}
+                            td.attendance.table-name.general #{el.subject_name}
+                            td
+                                form(action="/teachers/deleteSubjectTeacher/teacherId=" + el.teacher_id + "/subjectId=" + el.subject_id, method="POST")
+                                    input.btn.general.delete.local(type="submit" value="Удалить")
+                        -i++

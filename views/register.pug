@@ -1,0 +1,13 @@
+extends ./head
+block content
+    div.row.justify-content-md-center
+        div.col.col-lg-2.text-center.justify-content-sm-center.w-25.p-3
+            h3.mb-3.title.general Регистрация пользователя
+            form(action="/register", method="POST")
+                div.form-group.mb-3.mt-4
+                    input.form-control.general(type="text", name="username" placeholder="Логин"  required)
+                div.form-group.mb-3
+                    input.form-control.general(type="password" name="password" placeholder="Пароль" required)
+                div.form-group.mb-3
+                    input.btn.delete.general(type="submit" value="Зарегистрировать")
+            h4.text-center.text-danger #{message}

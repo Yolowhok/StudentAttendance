@@ -1,0 +1,17 @@
+extends ./head
+block content
+    style 
+        include ./css/listPosition.css
+    div.container
+        h3.mb-4.title.general Список должностей
+        div.mb-4
+            a.btn.general(href="/position/addPosition")  Добавить должность
+        div.container
+
+            div.table-responsive.w-25
+                ul.list-group.mb-4.pb-4.text-center
+                    each el in position
+                        li.list-group-item
+                            div.row
+                                a.btn.position(href="/position/p/" + el.id) #{el.name} 
+                

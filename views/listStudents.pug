@@ -1,0 +1,38 @@
+include ./head 
+block content
+    style   
+        include ./css/listStudents.css
+
+
+    div.container
+        h3.mb-4.title.general(id="test") Список студентов
+        div.col.mb-4
+            a.btn.general(href="/students/addStudent") Добавить студента
+        div.container.bg
+            div.row.text-center.mb-1
+                div.col-3
+                    span.header ФИО
+                div.col-3
+                    span.header Дата Рождения
+                div.col-3
+                    span.header Номер группы
+            div.table-responsive.listStudents.w-75
+                ul.list-group.mb-4.pb-4
+                        each el in students
+                            li.list-group-item
+                                div.row
+                                    div.col.text-center.name
+                                        a.btn.name(href="/students/stud/" + el.id) #{el.name}
+                                    div.col.text-center.btn
+                                        span #{el.birth_date}
+                                    div.col.text-center.btn 
+                                        span #{el.student_group_name}
+    |
+
+
+
+    //- a(href="/menu") menu
+    //- include ./information
+    
+
+//- #{el.lastname} #{el.surname} #{el.birthday} #{el.phoneNumber}

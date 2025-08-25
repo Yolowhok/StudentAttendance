@@ -1,0 +1,38 @@
+extends ./head
+block content
+    style 
+        include ./css/listTeachers.css
+    div.container
+        h3.mb-4.title.general Список преподавателей
+        div.col.mb-4
+            a.btn.general(href="addTeacher") Добавить преподавателя 
+        div.container
+            div.row.text-center.mb-1
+                div.col-3
+                    span.header ФИО
+                div.col-3
+                    span.header Должность
+            div.table-responsive.listTeachers
+                ul.list-group
+                        each el in teachers
+                                li.list-group-item
+                                    div.row
+                                        div.col.text-center.teacher
+                                            a.btn.name(href="/teachers/teacher/" + el.id) #{el.name}
+                                        div.col.text-center
+                                            span.btn.nameGroup #{el.position_name}
+
+    //- div.container
+    //-     h3.mb-4.title.general Список преподавателей
+    //-     div.container
+    //-         div.row.text-center
+    //-             div.col
+    //-                 span.header ФИО
+    //-             div.col
+    //-                 span.header Должность
+    //-     ul.list-group.mb-4.pb-4
+    //-         each el in teachers
+    //-                 li.list-group-item.nameGroup
+    //-                     div.row
+    //-                         a.col.btn.name(href="/teachers/teacher/" + el.id) #{el.name}
+    //-                         div.col.text-center.btn #{el.position_name}

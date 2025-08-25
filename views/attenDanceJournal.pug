@@ -1,0 +1,13 @@
+extends ./head
+block content
+
+    style 
+        include ./css/attendanceJournal.css
+    div.container
+        h3.mb-4.title.general Журнал
+        div.table-responsive.table-fit
+            ul.list-group.align-items-center
+                each el in studentGroup
+                    li.list-group-item.nameGroup
+                        div.row.nameGroup
+                                a.col.btn.nameGroup(href="/attendanceJournal/studentGroupID=" + el.id) #{el.name} 

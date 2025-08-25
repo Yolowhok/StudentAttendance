@@ -1,0 +1,18 @@
+extends ./head
+block content
+    script 
+        include /public/js/script-for-deleteSubjectForStudentGroup.js
+    div.container
+        h3.mb-4.title.general Удалить предмет для группы
+        form(action="/subjects/deleteSubjectForStudentGroup", method="post")
+            div.row
+                div.col-4
+                    select.form-select.general(name="student_group_id" id="st_student_group_id_delete")
+                        each el in studentGroup 
+                            option(value=el.id) #{el.name}
+                div.col-3
+                    select.form-select.general(name="subject_id" id="st_subject_id_for_student_group_delete") 
+                div.col-1
+                    input.btn.general.delete(type="submit", value="Удалить")  
+        a.btn.general(href="/subjects/listSubjectStudentGroup") Назад
+

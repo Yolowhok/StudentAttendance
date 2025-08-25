@@ -1,0 +1,47 @@
+html
+    head
+        meta(charset='utf-8')
+        title #{title}
+        link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css', rel='stylesheet', integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN', crossorigin='anonymous')
+        script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js', integrity='sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL', crossorigin='anonymous')
+       
+        script(src="/js/jquery-3.6.0.min.js")
+        script(src="/js/script.js")
+        script(src="/js/ckeditor/ckeditor.js")
+        style
+            include ./test.css
+
+    body(id="bodyTEST")
+        nav.nav.nav-tabs.nav-justified
+            li.nav-item
+                a.nav-link(href="/studentGroup/listStudentGroup") Студенческие группы 
+            li.nav-item                
+                a.nav-link(href="/students/listStudents") Студенты 
+            li.nav-item
+                a.nav-link(href="/teachers/listTeachers") Преподаватели 
+            li.nav-item
+                a.nav-link(href="/position/listPosition") Должности  
+            li.nav-item.dropdown()
+                        a.nav-link.dropdown-toggle(href="/subjects/listSubjects", role='button') Предметы
+                        ul.dropdown-menu
+                            li.nav-item.list
+                                a.nav-link(href="/teachers/listSubjectTeacher") Предметы преподавателей
+                            li.nav-item.list
+                                a.nav-link(href="/subjects/listSubjectStudentGroup") Предметы групп
+            li.nav-item
+                a.nav-link(href="/attendanceJournal") Журнал 
+            if username 
+                li.nav-item.dropdown()
+                            a.nav-link.dropdown-toggle(href="/subjects/listSubjects", role='button') #{username}
+                            ul.dropdown-menu
+                                li.nav-item
+                                    a.nav-link(href="/logout") Выйти
+            else 
+                li.nav-item.login
+                    a.nav-link.login(href="/login") Войти
+
+                    //- div.nav-link #{username}
+
+        div.container-md.mt-3
+            block content
+

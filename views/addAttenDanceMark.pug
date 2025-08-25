@@ -1,0 +1,56 @@
+extends ./head
+block content
+    style 
+        include ./css/addAttendaneMark.css
+    script 
+        include /public/js/script-for-addAttenDanceMark.js
+    div.container
+            input(type="hidden", id="studentGroupID" value = studentGroup.id)
+            form(action="/addAttendanceMark/studentGroupId=" + studentGroup.id, method="POST")
+                div.form-group.addAttenDanceMark
+                    div.row.mb-3
+                        div.col
+                            select.form-control.attendanceMark(name="subject_id" id="subject_id" required)
+                                each el in subjects
+                                    option(name="subject_id" value=el.id) #{el.name}
+                        div.col
+                            select.form-control.attendanceMark(name="teacher_id" id="teacher_id" required)
+                                each el in teachers
+                                    option(name="teacher_id" value=el.id) #{el.name}
+                        div.col   
+                            input.form-control(name="data_subject" type="date" placeholder="Дата занятия" required)
+                    //- div.row.mb-3
+                    //-     div.col
+                    //-         select.form-control.attendanceMark(name="teacher_id" id="teacher_id" required)
+                    //-             each el in teachers
+                    //-                 option(name="teacher_id" value=el.id) #{el.name}
+                    //-     div.col
+                    //-         select.form-control.attendanceMark(name="subject_id" id="subject_id" required)
+                    //-             each el in subjects
+                    //-                 option(name="subject_id" value=el.id) #{el.name}
+                    //-     div.col   
+                    //-         input.form-control(name="data_subject" type="date" placeholder="Дата занятия" required)
+                    div.table-responsive.table-fit
+                        table.table.table-fit.table-hover
+                            thead.table.table-light
+                                tr
+                                    th №
+                                    th Студент
+                                    th Отметка посещаемости
+                            tbody
+                                - var i = 0;
+                                each el in students
+                                    tr
+                                        td #{i+1}
+                                        td.table-name.general #{el.name}
+                                            // следующее поле не будет отображаться в пользовательском интерфейсе, поскольку установили 
+                                            //свойство type в значение "hidden"
+                                            // это поле требуется для отправки данных на сторону сервера (в данном случае данными выступают
+                                            // идентификаторы студентов)
+                                            input(name="array_students_id" type="hidden" value=el.id)
+                                        td.attendance
+                                            input(name="attendance" + i type="checkbox")
+                                    - i++
+                    input.btn.general.mt-4.addAttendanceMark(type="submit" value="Добавить")
+
+

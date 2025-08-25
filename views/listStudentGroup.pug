@@ -1,0 +1,30 @@
+extends ./head
+block content
+    - 
+        console.log("")
+        console.log("")
+    style   
+        include ./css/listStudentGroup.css
+    div.container
+        h3.mb-4.title.general Список групп
+        div.mb-4
+            a.btn.general(href="/studentGroup/addStudentGroup") Добавить студенческую группу
+        div.container
+                div.col-5.text-center.mb-1
+                    span.header Номер группы
+                div.table-responsive.table-fit.listStudentGroup
+                    ul.list-group.align-items-center
+                        each el in studentGroup
+                                li.list-group-item.nameGroup
+                                        div.row.nameGroup
+                                            a.col.btn.name(href="/studentGroup/group/" + el.id) #{el.name} 
+    //- div.col-12.col-sm-6
+    //-     h3.mb-4.title.general.text-center Список групп
+
+    //-     ul.list-group.align-items-center
+    //-         each el in studentGroup
+    //-             li.list-group-item.nameGroup
+    //-                 div.row.nameGroup
+    //-                     a.btn.nameGroup(href="/attendanceJournal/studentGroupID=" + el.id) #{el.name} 
+                        
+        //- a.btn.general.mt-4(href="/studentGroup") Назад

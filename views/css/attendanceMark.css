@@ -1,0 +1,13 @@
+/********************************************* ОТМЕТКИ ПОСЕЩАЕМОСТИ ЗА ДАТУ *********************************************/
+.col.attendanceMark {
+    width: 500px;
+    text-align: left;
+}
+.row.attendanceMark {
+    width: 500px;
+    text-align: left;
+}
+.row.text-center.mb-4.attendanceMark.butt {
+    width: 39%;
+    background-color: bisque;
+}

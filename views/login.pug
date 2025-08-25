@@ -1,0 +1,16 @@
+extends ./head
+block content
+    style 
+        include ./css/login.css
+    div.row.justify-content-md-center
+        div.col.col-lg-2.text-center.justify-content-sm-center.w-25.p-3
+            h3.mb-3.title.general Вход в систему
+            form(action="/login", method="POST")
+                div.form-group.mb-3.mt-4
+                    input.form-control.general(type="text", name="username" placeholder="Логин" required)
+                div.form-group.mb-3
+                    input.form-control.general(type="password" name="password" placeholder="Пароль" required)
+                div.form-group.mb-3
+                    input.btn.general(type="submit" value="Войти")
+            a.btn.general.delete(href="/register") Зарегистрироваться
+            h4.text-center.text-danger #{message}

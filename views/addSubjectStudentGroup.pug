@@ -1,0 +1,27 @@
+extends ./head 
+block content 
+    script     
+        include /public/js/script-for-listSubjectStudentGroupEDIT.js
+    div.container
+        h3.mb-4.title.general Добавить предмет для группы
+        form(action="/subjects/addSubjectForStudentGroup", method="post")
+            div.row
+                div.col-4
+                    select.form-select.general(name="student_group_id" id="st_student_group_id")
+                        each el in studentGroup 
+                            option(value=el.id) #{el.name}
+                div.col-3
+                    select.form-select.general(name="subject_id" id="st_subject_id_for_student_group") 
+                        each el in subject 
+                            option(value=el.id) #{el.name}
+                div.col-1
+                    input.btn.general(type="submit", value="Обновить")  
+        a.btn.general(href="/subjects/listSubjectStudentGroup") Назад
+
+
+        //- form(action="/subjects/deleteSubjectForStudentGroup", method="post")
+        //-     input.btn.general.delete(type="submit" value="Удалить") 
+
+
+
+        

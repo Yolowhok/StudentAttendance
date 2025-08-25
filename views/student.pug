@@ -1,0 +1,42 @@
+extends ./head
+block content
+    div.container
+    
+        h3.mb-4.title.general Студент #{student.name}
+        form(action="/students/updateStudent/"+student.id, method="post")
+            div.form-group
+                div.row.mb-4
+                    div.col.col-4
+                        input.form-control.general(type="text", name="name", value=student.name, placeholder="ФИО Студента", required)
+                    div.col.col-2
+                        input.form-control.general(type="date", name="birth_date", value=student.birth_date, required)
+                    div.col.col-2
+                        select.form-select.general(name="student_group_id")
+                            each el in studentGroups 
+                                if (student.student_group_id == el.id)
+                                    option(value=el.id selected) #{el.name}
+                                else 
+                                    option(value=el.id) #{el.name} 
+                    div.col-1
+                        input.btn.general(type="submit", value="Обновить")
+        form(action="/students/deleteStudent/" + student.id, method="post") 
+            div.form-group
+                div.row
+                    div.col-1
+                        input.btn.general.delete(type="submit", value="Удалить")
+
+
+    //- h1 Студент
+    //- form(action="/students/updateStudent/"+student.id, method="post")
+    //-     input(type="text", name="name", value=student.name, placeholder="ФИО Студента", required)
+
+    //-     input(type="date", name="birth_date", value=student.birth_date, required)
+    //-     select(name="student_group_id")
+    //-         each el in studentGroups 
+    //-             if (student.student_group_id == el.id)
+    //-                 option(value=el.id selected) #{el.name}
+    //-             else 
+    //-                 option(value=el.id) #{el.name} 
+    //-     input(type="submit", value="Обновить")
+    //- form(action="/students/deleteStudent/" + student.id, method="post") 
+    //-     input(type="submit", value="Удалить")

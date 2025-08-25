@@ -1,0 +1,14 @@
+/********************************************* ДОБАВИТЬ ОТМЕТКУ ПОСЕЩАЕМОСТИ *********************************************/
+.form-control.attendanceMark:focus {
+    box-shadow: 0 0 2px #000000;
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+    border-color: black;
+}
+.form-control.attendanceMark:hover {
+    box-shadow: 0 0 4px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+.form-control.attendanceMark:focus:not(:hover) {
+    box-shadow: 0 0 8px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}

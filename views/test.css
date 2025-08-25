@@ -1,0 +1,347 @@
+ /* ********************* НАВИГАЦИОННАЯ ПАНЕЛЬ CSS  ********************* */
+ .nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.tab-content .tab-pane {
+    background-color: #1a1a1a;
+  }
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    isolation: isolate;
+    --bs-nav-link-hover-color: rgb(0, 0, 0);
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+
+}
+
+.dropdown-menu {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    text-align: center;
+    position:relative;  
+    --bs-dropdown-padding-y: 6px;
+    --bs-dropdown-link-active-bg: #ffffff;
+    --bs-dropdown-link-hover-bg: #ffffff;
+    border-top-left-radius: 0;
+
+  } 
+.dropdown-menu:hover {
+    background-color: rgb(255, 255, 255);
+}
+.dropdown-item:hover  {
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+
+    --bs-nav-tabs-border-width: var(--bs-border-width);
+    --bs-nav-tabs-border-color: var(--bs-border-color);
+}
+
+.nav-tabs .nav-link {
+    margin-bottom: 0px
+} 
+
+.dropdown-item::after {
+    display: block;
+    content: '';
+    /* border-bottom: 2px solid black; */
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px; 
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;   
+}
+.dropdown-item:hover::after {
+    transform: scaleX(1);   
+}
+
+.nav-item.dropdown {
+    width: 100%;
+}
+
+.nav-item.dropdown:hover  .dropdown-menu {
+    display: block;
+    margin-bottom: -169px;
+
+}
+.dropdown-menu {
+    border-top: 3px solid black;
+
+}
+
+/* .nav-tabs .dropdown-menu {
+    margin-top: 2px;    
+    border-top: 3px solid black;
+
+} */
+
+
+
+.nav-item.dropdown:hover {
+    border-bottom: 2px solid rgb(0, 0, 0);
+
+}
+.nav-item.dropdown::after {
+    /* border-bottom: 2px solid black; */
+    transform: scaleX(0);
+
+}
+.nav-item.dropdown:hover::after {
+    transform: scaleX(1);
+}
+
+
+
+.nav-link {
+    color: rgb(0, 0, 0);
+}
+.nav-link:hover {
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+    color: black
+}
+
+
+.nav-link.login:hover {
+    text-shadow: 0 0 0.7px rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+    color: white;
+    background-color:#000000; 
+
+} 
+.nav-link.login {
+    color: rgb(0, 0, 0);
+}
+
+
+
+.nav-item::after {
+    display: block;
+    content: '';
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;    
+    transform: scaleX(0);
+
+    border-bottom: 3px solid black;
+    transition: transform 250ms ease-in-out;
+}
+.nav-item:hover::after {
+    transform: scaleX(1);
+}
+
+.nav-item.list::after {
+    display: block;
+    content: '';
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;    
+    transform: scaleX(0);
+
+    border-bottom: 3px solid rgb(0, 0, 0);
+    transition: transform 250ms ease-in-out;   
+}
+.nav-item.list:hover::after {
+    transform: scaleX(1);
+}
+.nav-item.dropdown::after {
+    display: block;
+    content: '';
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;    
+    transform: scaleX(0);
+    border-bottom: 0px solid rgb(255, 255, 255);
+    transition: transform 250ms ease-in-out;
+}
+.nav-item.dropdown:hover::after {
+    transform: scaleX(1);
+
+}
+
+.nav-item.login {
+    color: black
+}
+.nav-item.login::after {
+    display: block;
+    content: '';
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;    
+    transform: scaleX(0);
+
+    border-bottom: 4px solid rgb(229, 63, 63);
+    transition: transform 250ms ease-in-out;
+}
+.nav-item.login:hover::after {
+    transform: scaleX(1);
+
+}
+ /*******************************************************************/
+
+
+
+ /********************** CHECKBOX CSS  **********************/
+
+input[type=checkbox] {
+    position: relative;
+      cursor: pointer;
+}
+input[type=checkbox]:hover {
+    border: 2px solid rgba(50,125,255,1);
+}
+input[type=checkbox]:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 0;
+    left: 0;
+    border: 1px solid #555555;
+    border-radius: 3px;
+    background-color: white;
+    
+}
+input[type=checkbox]:checked:after {
+    content: "";
+    display: block;
+    width: 5px;
+    height: 10px;
+    border: 2px solid black;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    position: absolute;
+    top: 2px;
+    left: 6px;
+}
+input[type=checkbox]:hover {
+    box-shadow: 0 0 2px #909090;
+    
+}
+ /***********************************************************/
+
+
+
+
+.col-md-5 {
+    padding-left: 30px; 
+    /* что это изменяет? */
+}
+
+
+ /********************** РАСПОЛОЖЕНИЕ ЭЛЕМЕНТОВ В ТАБЛИЦЕ CSS  **********************/
+td.attendance {
+    text-align: center; 
+    vertical-align: middle;
+}
+th {
+    text-align: center; 
+    vertical-align: middle;  
+    height: 50px;
+    line-height: 2px;
+}
+.table-responsive {
+    max-height: 500px;
+    max-width: 1200px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+    border-radius: 15px;
+
+
+
+}
+.table-responsive:hover {
+    box-shadow: 0 0 4px #909090;
+    border: 1px solid rgb(0, 0, 0);
+}
+.table-fit {
+    width:max-content;
+}
+/********************** DATE CSS **********************/
+input[type="date"] {
+    border: 1px solid #909090;
+}
+input[type="date"]:hover {
+    box-shadow: 0 0 4px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+input[type="date"]:focus {
+    outline: none !important;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(243, 243, 243);
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+}
+input[type="date"]:focus:not(:hover) {
+    box-shadow: 0 0 8px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+/***********************BTN GENERAL**************************/
+.btn.general {
+    border: 1px solid #000000;
+}
+.btn.general:hover {
+    box-shadow: 0 0 4px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+.btn.general.delete {
+/* border: 1px solid #A75959; */
+    background: #000000;
+    color: white;
+    border: 1px solid #000000;
+
+}
+.btn.general.delete:hover {
+    box-shadow: 0 0 4px #909090;
+    border: 2px solid rgb(0, 0, 0);
+    
+}
+ /***********************FORM-CONTROL GENERAL**************************/
+.form-control.general {
+    border: 1px solid #000000;
+}
+.form-control.general:hover {
+    box-shadow: 0 0 4px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+.form-control.general:focus{
+    box-shadow: 0 0 2px #000000;
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+    border-color: black;
+}
+.form-control.general:focus:not(:hover) {
+    box-shadow: 0 0 8px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+/*********************************************************************/
+
+
+/***********************FORM-SELECT GENERAL**************************/
+.form-select.general{
+    border: 1px solid #000000;
+}
+.form-select.general:hover {
+    box-shadow: 0 0 4px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+.form-select.general:focus {
+    outline: none !important;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(243, 243, 243);
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+}
+.form-select.general:focus:not(:hover) {
+    box-shadow: 0 0 8px #909090;
+    border: 2px solid rgb(0, 0, 0);
+}
+/***********************TABLE-NAME GENERAL**************************/
+.table-name.general:hover {
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+}
+/***********************ЗАГОЛОВОК GENERAL**************************/
+.title.general:hover {
+    text-shadow: 0 0 1px rgb(0, 0, 0);
+}
+/***********************DIV FOR EDITOR**************************/
+
+.div-none {
+    display: none;
+}
+textarea#addSubjectEditor {
+    display: none;
+}

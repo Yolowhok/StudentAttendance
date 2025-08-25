@@ -1,0 +1,29 @@
+/********************************************* СПИСОК ГРУПП *********************************************/
+.list-group-item.nameGroup::after {
+    display: block;
+    content: '';
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;    
+    transform: scaleX(0);
+    border-bottom: 1px solid black;
+    transition: transform 250ms ease-in-out;
+}
+.list-group-item.nameGroup:hover::after {
+    transform: scaleX(1);
+}
+.row.nameGroup {
+    width: 500px;
+    text-align: left;
+}
+.btn.nameGroup:hover {
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+}
+.col.btn.name:hover {
+    text-shadow: 0 0 1px #000000;
+}
+.header {
+    text-shadow: 0 0 0.7px #000000;
+}
+.table-responsive.table-fit.listStudentGroup {
+    max-height: 500px;
+}

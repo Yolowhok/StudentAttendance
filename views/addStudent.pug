@@ -1,0 +1,35 @@
+include ./head 
+block content   
+
+    div.container
+        h3.mb-4.title.general Добавить студента
+        div.w-25
+            form(action="/students/addStudent", method="post") 
+                div.form-group
+                    div.row.mb-4
+                        div.col
+                            input.form-control.general(name="name" type="text" placeholder="ФИО студента" required)
+                    div.row
+                        div.col.mb-4
+                            input.form-control(name="birth_date" type="date" placeholder="Дата рождения" required)
+                        div.col.mb-4
+                            select.form-select.general(name="student_group_id") 
+                                each el in studentGroup  
+                                    option(value=el.id) #{el.name}
+                        div.text-center
+                            input.btn.general(type="submit", value="Добавить")
+
+
+
+            //- div.form-group.addAttenDanceMark
+            //-     div.row.mb-5
+            //-         div.col
+            //-             select.form-control.attendanceMark(name="teacher_id")
+            //-                 each el in teachers
+            //-                     option(name="teacher_id" value=el.id) #{el.name}
+            //-         div.col
+            //-             select.form-control.attendanceMark(name="subject_id")
+            //-                 each el in subjects
+            //-                     option(name="subject_id" value=el.id) #{el.name}
+            //-         div.col   
+            //-             input.form-control(name="data_subject" type="date" placeholder="Дата занятия" required)

@@ -1,0 +1,19 @@
+/********************************************* СПИСОК ДОЛЖНОСТЕЙ *********************************************/
+.btn.position:hover {
+    text-shadow: 0 0 0.7px rgb(0, 0, 0);
+}
+.list-group-item::after {
+    display: block;
+    content: '';
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;    
+    transform: scaleX(0);
+    border-bottom: 1px solid black;
+    transition: transform 250ms ease-in-out;
+}
+.list-group-item:hover::after {
+    transform: scaleX(1);
+}
+.header {
+    text-shadow: 0 0 0.7px #000000;
+}

@@ -1,0 +1,25 @@
+extends ./head
+block content 
+    style 
+        include ./css/subjectStudentGroup.css
+    script
+        include /public/js/script-for-listSubjectStudentGroup.js
+
+    div.container(id="textID")
+        h3.mb-4.title.general Предметы групп
+        div.mb-4.row.w-25
+            a.col.btn.general.mr-4(href="/subjects/addSubjectForStudentGroup") Изменить
+            a.col.btn.general.delete(href="/subjects/deleteSubjectForStudentGroup") Удалить
+
+        div.row(id="testRowID")
+            div.table-responsive.table-fit.col
+                ul.list-group.align-items-center(id="list")
+                    each el in subjectStudentGroup
+                        li.list-group-item.nameGroup
+                            div.row.nameGroup
+                                    btn.col.btn.nameGroup.jqueryHover(value=el.id) #{el.name} 
+            div.table-responsive.table-fit.col(id="containerV")
+                ul.list-group.align-items-center(id="ulID")
+        
+
+

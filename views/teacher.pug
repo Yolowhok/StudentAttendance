@@ -1,0 +1,32 @@
+extends ./head
+block content
+    div.container
+        - var name;
+           each el in position
+                -
+                    if (el.id == teacher.position_id) {
+                        name = el.name;
+                        }
+
+        h3.mb-4.title.general #{teacher.name} — #{name}
+        form(action="updateTeacher/" + teacher.id, method="post")
+            div.row.mb-4
+                div.col-4
+                    input.form-control.general(type="text", name="name", value=teacher.name, placeholder="ФИО преподавателя", required) 
+                div.col-2
+                    select.form-select.general(name="position")
+                        each el in position 
+                            if (el.id == teacher.position_id)
+                                option(value=el.id, selected) #{el.name}  
+                            else 
+                                option(value=el.id) #{el.name}
+                div.col-2
+                    input.btn.general(type="submit", value="Обновить")
+        div.row
+
+            div.col-2
+                form(action="deleteTeacher/" + teacher.id, method="post") 
+                    input.btn.general.delete(type="submit", value="Удалить")
+    //- if teacher!=null
+    //-     div #{teacher.firstname} #{teacher.surname} #{teacher.lastname}
+    //- a(href="/menu") menu

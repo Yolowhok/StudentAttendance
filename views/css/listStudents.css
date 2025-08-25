@@ -1,0 +1,24 @@
+/********************************************* СПИСОК СТУДЕНТОВ *********************************************/
+
+.col.text-center.name:hover {
+    text-shadow: 0 0 1px #000000;
+}
+.header {
+    text-shadow: 0 0 0.7px #000000;
+}
+.table-responsive.listStudents {
+    min-height: 600px;
+}
+.col.text-center.name::after {
+    display: block;
+    content: '';
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;    
+    transform: scaleX(0);
+    border-bottom: 1px solid black;
+    transition: transform 250ms ease-in-out;
+}
+.col.text-center.name:hover::after {
+    transform: scaleX(1);
+}
+

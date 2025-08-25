@@ -1,0 +1,22 @@
+extends ./head
+block content
+    div.container
+        h3.mb-4.title.general Группа #{studentGroup.name}
+        div.form-group
+            form(action="/studentGroup/group/updateStudentGroup/" + studentGroup.id, method="POST")
+                div.row
+                    div.col.col-4
+                        input.form-control.general(name="name" type="text" placeholder="Наименование группы" value=studentGroup.name required) 
+                    div.col.col-1
+                        input.btn.general(type="submit" value="Обновить")     
+            div.row
+                    div.col
+                        form(action="/studentGroup/group/deleteStudentGroup/" + studentGroup.id, method="POST")
+                            input.btn.general.delete(type="submit" value="Удалить")
+
+//- block content
+//-     form(action="/studentGroup/group/updateStudentGroup/" + studentGroup.id, method="POST")
+//-         input(name="name" type="text" placeholder="Наименование группы" value=studentGroup.name required) 
+//-         input(type="submit" value="Обновить")
+//-     form(action="/studentGroup/group/deleteStudentGroup/" + studentGroup.id, method="POST")
+//-         input(type="submit" value="Удалить")

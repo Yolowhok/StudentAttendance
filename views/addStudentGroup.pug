@@ -1,0 +1,17 @@
+extends ./head 
+block content 
+
+    //- form(action="/studentGroup/addStudentGroup" method="POST")
+    //-     input(name="name" type="text" placeholder="Наименование группы" required)
+    //-     input(type="submit" value="Добавить")
+    //- a(href="listStudentGroup") Назад
+
+    div.container
+        h3.mb-4.title.general Добавить группу
+        form(action="/studentGroup/addStudentGroup" method="POST")
+            div.form-group
+                div.row.mb-4
+                    div.col.col-4
+                        input.form-control.general(name="name" type="text" placeholder="Наименование группы" required)
+                    div.col.col-4
+                        input.btn.general(type="submit" value="Добавить")

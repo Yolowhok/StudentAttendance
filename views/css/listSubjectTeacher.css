@@ -1,0 +1,9 @@
+/********************************************* СПИСОК ПРЕДМЕТОВ УЧИТЕЛЕЙ *********************************************/
+.table-responsive.table-fit {
+    max-width: 1200px;
+    max-height: 600px;
+}
+.btn.general.delete.local {
+    margin-top: 5%;
+    margin-bottom: -10%;
+}
